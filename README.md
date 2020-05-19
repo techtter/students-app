@@ -1,7 +1,7 @@
 # students-app
 
 ## Sample Spring Boot Application
-This application is students-app uses MysQL database to store the students information.
+This is a simple Spring Boot App( students-app) uses MysQL database to store the students information.
 The goal of this project is how we can build and deploy Spring Boot and MySQL on Kubernetes cluster.
 
 ## Create the jar file for Spring application
