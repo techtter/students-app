@@ -11,7 +11,7 @@ mvn clean install
 mvn -Dmaven.test.skip=true clean install     ## to skip the unit tests
 ```
 
-### How to install Minikube on laptop
+## How to install Minikube on laptop
 Follow the instructions here: https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 ## How to install kubectl on laptop
@@ -21,23 +21,31 @@ Follow the instructions here: https://kubernetes.io/docs/tasks/tools/install-kub
 ````
 minikube start
 ````
-### Connect your cli tool to docker-env of Kubernetes cluster
+## Connect your cli tool to docker-env of Kubernetes cluster
 You should run this command after running 'minikube start'
 ````
 eval $(minikube docker-env)  
 ````
-### Build docker image for Spring Boot app
+
+## Commands To encode the admin password of mysql && username and password
+````
+echo -n 'admin123' | base64
+echo -n 'testuser' | base64
+echo -n 'testuser@123' | base64
+````
+
+## Build docker image for Spring Boot app
 Before running this command ensure you already build the jar that is available in your project /target folder
 ````
 docker build -t students-app:1.0 . 
 ````
 
-### Pull MySQL docker image to your K8s docler-env
+## Pull MySQL docker image to your K8s docler-env
 ```
 docker pull mysql:5.6
 ```
 
-### Deploying Spring Boot & MySQL apps on K8s cluster
+## Deploying Spring Boot & MySQL apps on K8s cluster
 cd to /kuberenetes folder
 ````
 kubectl apply -f mysql-configmap.yml
@@ -51,7 +59,7 @@ kubectl apply -f mysql-deployment.yml
 kubectl apply -f student-deployment.yml
 ````
 
-### To check pods, services, deployments, confih maps are deployed successfully
+## To check pods, services, deployments, confih maps are deployed successfully
 ````
 kubectl get pods
 kubectl get configmaps
@@ -59,16 +67,16 @@ kubectl get secrets
 kubectl get deployments
 `````
 
-### Minikube dashboard overview
+## Minikube dashboard overview
 ````
 minikube dashboard
 ````
-### To delete deployments, services etc
+## To delete deployments, services etc
 cd to /kuberenetes folder
 ````
 kubectl delete -f .
 ````
-### To stop Kubernetes cluster
+## To stop Kubernetes cluster
 ````
 minikube stop
 ````
